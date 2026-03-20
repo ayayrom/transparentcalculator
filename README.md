@@ -1,24 +1,12 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This ruby on rails project is to create a calculator that can recursively break down its steps and show it in a tree-like fashion.
 
-Things you may want to cover:
+## Ruby version
+truffleruby 33.0.1 (2026-01-20)
 
-* Ruby version
+## Configuration
+This project was tinkered to use PostgreSQL instead of SQLite because of PostgreSQL's support for JSONB.
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+## Database
+The database must be ran concurrently with the rails server, with `docker compose up -d`. You can configure the ports and user/password as needed.
