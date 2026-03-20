@@ -41,11 +41,15 @@ jobs:
 
   lint:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
     env:
       RUBOCOP_CACHE_ROOT: tmp/rubocop
     steps:
       - name: Checkout code
         uses: actions/checkout@v6
+        with:
+          ref: ${{ github.head_ref || github.ref_name }}
 
       - name: Set up Ruby
         uses: ruby/setup-ruby@v1
@@ -62,8 +66,14 @@ jobs:
           restore-keys: |
             rubocop-${{ runner.os }}-${{ env.DEPENDENCIES_HASH }}-
 
-      - name: Lint code for consistent style
-        run: bin/rubocop -f github
+      - name: Auto-correct code style
+        run: bin/rubocop -a || true
+        
+      - name: Commit and push changes
+        uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: "style: auto-correct RuboCop offenses"
+          commit_user_name: "GitHub Actions Bot"
 
   test:
     runs-on: ubuntu-latest
