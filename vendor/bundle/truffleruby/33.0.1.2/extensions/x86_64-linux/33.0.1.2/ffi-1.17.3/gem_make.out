@@ -1,0 +1,18 @@
+current directory: /home/runner/work/transparentcalculator/transparentcalculator/vendor/bundle/truffleruby/33.0.1.2/gems/ffi-1.17.3/ext/ffi_c
+/home/runner/.rubies/truffleruby-33.0.1/bin/ruby extconf.rb
+
+current directory: /home/runner/work/transparentcalculator/transparentcalculator/vendor/bundle/truffleruby/33.0.1.2/gems/ffi-1.17.3/ext/ffi_c
+make DESTDIR\= sitearchdir\=./.gem.20260320-2337-amjjgr sitelibdir\=./.gem.20260320-2337-amjjgr clean
+make: *** No rule to make target 'clean'.  Stop.
+
+current directory: /home/runner/work/transparentcalculator/transparentcalculator/vendor/bundle/truffleruby/33.0.1.2/gems/ffi-1.17.3/ext/ffi_c
+make DESTDIR\= sitearchdir\=./.gem.20260320-2337-amjjgr sitelibdir\=./.gem.20260320-2337-amjjgr
+make: Nothing to be done for 'all'.
+
+current directory: /home/runner/work/transparentcalculator/transparentcalculator/vendor/bundle/truffleruby/33.0.1.2/gems/ffi-1.17.3/ext/ffi_c
+make DESTDIR\= sitearchdir\=./.gem.20260320-2337-amjjgr sitelibdir\=./.gem.20260320-2337-amjjgr install
+make: Nothing to be done for 'install'.
+
+current directory: /home/runner/work/transparentcalculator/transparentcalculator/vendor/bundle/truffleruby/33.0.1.2/gems/ffi-1.17.3/ext/ffi_c
+make DESTDIR\= sitearchdir\=./.gem.20260320-2337-amjjgr sitelibdir\=./.gem.20260320-2337-amjjgr clean
+make: *** No rule to make target 'clean'.  Stop.

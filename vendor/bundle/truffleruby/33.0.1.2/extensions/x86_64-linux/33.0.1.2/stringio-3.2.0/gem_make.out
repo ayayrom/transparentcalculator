@@ -1,0 +1,14 @@
+current directory: /home/runner/work/transparentcalculator/transparentcalculator/vendor/bundle/truffleruby/33.0.1.2/gems/stringio-3.2.0/ext/stringio
+/home/runner/.rubies/truffleruby-33.0.1/bin/ruby extconf.rb
+
+current directory: /home/runner/work/transparentcalculator/transparentcalculator/vendor/bundle/truffleruby/33.0.1.2/gems/stringio-3.2.0/ext/stringio
+make DESTDIR\= sitearchdir\=./.gem.20260320-2337-6dhkqs sitelibdir\=./.gem.20260320-2337-6dhkqs clean
+
+current directory: /home/runner/work/transparentcalculator/transparentcalculator/vendor/bundle/truffleruby/33.0.1.2/gems/stringio-3.2.0/ext/stringio
+make DESTDIR\= sitearchdir\=./.gem.20260320-2337-6dhkqs sitelibdir\=./.gem.20260320-2337-6dhkqs
+
+current directory: /home/runner/work/transparentcalculator/transparentcalculator/vendor/bundle/truffleruby/33.0.1.2/gems/stringio-3.2.0/ext/stringio
+make DESTDIR\= sitearchdir\=./.gem.20260320-2337-6dhkqs sitelibdir\=./.gem.20260320-2337-6dhkqs install
+
+current directory: /home/runner/work/transparentcalculator/transparentcalculator/vendor/bundle/truffleruby/33.0.1.2/gems/stringio-3.2.0/ext/stringio
+make DESTDIR\= sitearchdir\=./.gem.20260320-2337-6dhkqs sitelibdir\=./.gem.20260320-2337-6dhkqs clean

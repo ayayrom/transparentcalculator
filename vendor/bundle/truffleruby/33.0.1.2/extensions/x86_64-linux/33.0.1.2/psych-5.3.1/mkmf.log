@@ -1,0 +1,41 @@
+pkg_config: checking for pkg-config for yaml-0.1... -------------------- [" ", "", "-lyaml"]
+
+LD_LIBRARY_PATH=. pkg-config --exists yaml-0.1
+LD_LIBRARY_PATH=. pkg-config --libs yaml-0.1 |
+=> "-lyaml \n"
+LD_LIBRARY_PATH=. "gcc -o conftest -I/home/runner/.rubies/truffleruby-33.0.1/lib/cext/include -I/home/runner/.rubies/truffleruby-33.0.1/lib/cext/include/ruby/backward -I/home/runner/.rubies/truffleruby-33.0.1/lib/cext/include -I.    -O3 -fno-fast-math -ggdb3 -Werror=implicit-function-declaration -Wno-int-conversion -Wno-int-to-pointer-cast -Wno-incompatible-pointer-types -Wno-format-extra-args conftest.c  -L.          -L/home/runner/.rubies/truffleruby-33.0.1/lib/cext -Wl,-rpath,/home/runner/.rubies/truffleruby-33.0.1/lib/cext -ltrufflerubytrampoline"
+checked program was:
+/* begin */
+1: #include "ruby.h"
+2: 
+3: int main(int argc, char **argv)
+4: {
+5:   return !!argv[argc];
+6: }
+/* end */
+
+LD_LIBRARY_PATH=. "gcc -o conftest -I/home/runner/.rubies/truffleruby-33.0.1/lib/cext/include -I/home/runner/.rubies/truffleruby-33.0.1/lib/cext/include/ruby/backward -I/home/runner/.rubies/truffleruby-33.0.1/lib/cext/include -I.    -O3 -fno-fast-math -ggdb3 -Werror=implicit-function-declaration -Wno-int-conversion -Wno-int-to-pointer-cast -Wno-incompatible-pointer-types -Wno-format-extra-args conftest.c  -L.       -lyaml   -L/home/runner/.rubies/truffleruby-33.0.1/lib/cext -Wl,-rpath,/home/runner/.rubies/truffleruby-33.0.1/lib/cext -ltrufflerubytrampoline"
+checked program was:
+/* begin */
+1: #include "ruby.h"
+2: 
+3: int main(int argc, char **argv)
+4: {
+5:   return !!argv[argc];
+6: }
+/* end */
+
+LD_LIBRARY_PATH=. pkg-config --cflags-only-I yaml-0.1 |
+=> "\n"
+LD_LIBRARY_PATH=. pkg-config --cflags-only-other yaml-0.1 |
+=> "\n"
+LD_LIBRARY_PATH=. pkg-config --libs-only-l yaml-0.1 |
+=> "-lyaml \n"
+package configuration for yaml-0.1
+incflags: 
+cflags: 
+ldflags: 
+libs: -lyaml
+
+--------------------
+

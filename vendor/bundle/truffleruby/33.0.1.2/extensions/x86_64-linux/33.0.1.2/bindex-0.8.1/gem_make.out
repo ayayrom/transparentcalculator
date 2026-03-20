@@ -1,0 +1,18 @@
+current directory: /home/runner/work/transparentcalculator/transparentcalculator/vendor/bundle/truffleruby/33.0.1.2/gems/bindex-0.8.1/ext/skiptrace
+/home/runner/.rubies/truffleruby-33.0.1/bin/ruby extconf.rb
+
+current directory: /home/runner/work/transparentcalculator/transparentcalculator/vendor/bundle/truffleruby/33.0.1.2/gems/bindex-0.8.1/ext/skiptrace
+make DESTDIR\= sitearchdir\=./.gem.20260320-2337-pfvsfa sitelibdir\=./.gem.20260320-2337-pfvsfa clean
+make: Nothing to be done for 'clean'.
+
+current directory: /home/runner/work/transparentcalculator/transparentcalculator/vendor/bundle/truffleruby/33.0.1.2/gems/bindex-0.8.1/ext/skiptrace
+make DESTDIR\= sitearchdir\=./.gem.20260320-2337-pfvsfa sitelibdir\=./.gem.20260320-2337-pfvsfa
+make: Nothing to be done for 'all'.
+
+current directory: /home/runner/work/transparentcalculator/transparentcalculator/vendor/bundle/truffleruby/33.0.1.2/gems/bindex-0.8.1/ext/skiptrace
+make DESTDIR\= sitearchdir\=./.gem.20260320-2337-pfvsfa sitelibdir\=./.gem.20260320-2337-pfvsfa install
+make: Nothing to be done for 'install'.
+
+current directory: /home/runner/work/transparentcalculator/transparentcalculator/vendor/bundle/truffleruby/33.0.1.2/gems/bindex-0.8.1/ext/skiptrace
+make DESTDIR\= sitearchdir\=./.gem.20260320-2337-pfvsfa sitelibdir\=./.gem.20260320-2337-pfvsfa clean
+make: Nothing to be done for 'clean'.
