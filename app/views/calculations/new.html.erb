@@ -1,17 +1,41 @@
 <h1>Transparent Calculator</h1>
 <p>Find me in app/views/calculations/new.html.erb</p>
 
+<% if @calculation.errors.any? %>
+  <div style="color: red;">
+    <%= @calculation.errors.full_messages.to_sentence %>
+  </div>
+<% end %>
+
 <%= form_with model: @calculation, local: true do |form| %>
   <div>
     <%= form.label :equation, "Enter your math equation:" %>
-    <%= form.text_area :equation, rows: 4, cols: 50, placeholder: "(10^10 + (10 * 10)^10) + 10" %>
+    <%= form.text_field :equation,
+      id: "equation_input",
+      size: 50,
+      placeholder: "(10^10 + (10 * 10)^10) + 10",
+      required: true,
+      pattern: '[0-9\+\*\/\^\(\)\.\s\-]+', # bruh this was so strict so i brute forced it
+      title: "Only numbers, spaces, and math operators (+, -, *, /, ^) are allowed."
+     %>
   </div>
 
   <br>
 
   <div>
-    <%= form.submit "Calculate steps" %>
+    <%= form.submit "Calculate steps", id: "calculate_btn"  %>
   </div>
 <% end %>
 
-<%= debug @calculations %>
+<script>
+  const input = document.getElementById("equation_input");
+  const button = document.getElementById("calculate_btn");
+
+  const validateInput = () => {
+    button.disabled = !input.checkValidity();
+  }
+  validateInput();
+  input.addEventListener("input", validateInput);
+</script>
+
+<%= debug @calculation %>
