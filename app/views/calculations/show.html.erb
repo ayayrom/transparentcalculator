@@ -1,2 +1,20 @@
-<h1>Calculations#show</h1>
+<h1>Transparent Calculator Result</h1>
 <p>Find me in app/views/calculations/show.html.erb</p>
+
+<p>
+  Equation:
+  <%= @calculation.equation %>
+</p>
+
+<p>
+  Solution:
+  <%= @calculation.solution %>
+</p>
+
+Step by step execution tree
+
+<code><%= JSON.pretty_generate(@calculation.tree) %></code>
+
+<br>
+
+<%= link_to "Calculate another equation", root_path %>

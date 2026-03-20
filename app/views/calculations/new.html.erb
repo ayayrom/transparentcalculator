@@ -1,4 +1,17 @@
-<h1>Calculations#new</h1>
+<h1>Transparent Calculator</h1>
 <p>Find me in app/views/calculations/new.html.erb</p>
+
+<%= form_with model: @calculation, local: true do |form| %>
+  <div>
+    <%= form.label :equation, "Enter your math equation:" %>
+    <%= form.text_area :equation, rows: 4, cols: 50, placeholder: "(10^10 + (10 * 10)^10) + 10" %>
+  </div>
+
+  <br>
+
+  <div>
+    <%= form.submit "Calculate steps" %>
+  </div>
+<% end %>
 
 <%= debug @calculations %>
