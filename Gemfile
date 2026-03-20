@@ -5,7 +5,7 @@ gem "rails", "~> 8.1.2"
 # The modern asset pipeline for Rails [https://github.com/rails/propshaft]
 gem "propshaft"
 # Use pg as the database for Active Record
-#gem "pg", ">= 2.1"
+# gem "pg", ">= 2.1"
 gem "pg", "~> 1.1"
 # Use the Puma web server [https://github.com/puma/puma]
 gem "puma", ">= 5.0"
@@ -55,4 +55,5 @@ end
 group :development, :test do
   gem "rubocop", require: false
   gem "brakeman", require: false
+  gem "rubocop-rails-omakase", require: false
 end

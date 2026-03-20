@@ -1,5 +1,4 @@
 class CalculationsController < ApplicationController
-
   def new
     @calculation = Calculation.new
   end
@@ -24,5 +23,4 @@ class CalculationsController < ApplicationController
   def calculation_params
     params.require(:calculation).permit(:equation)
   end
-  
 end
