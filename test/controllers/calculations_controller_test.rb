@@ -20,7 +20,7 @@ class CalculationsControllerTest < ActionDispatch::IntegrationTest
       solution: "Pending,",
       tree: { "status" => "Not parsed" }
     )
-    
+
     get calculation_url(calc)
     assert_response :success
   end
