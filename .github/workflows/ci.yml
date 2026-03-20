@@ -70,7 +70,7 @@ jobs:
         run: bin/rubocop -a || true
         
       - name: Commit and push changes
-        uses: stefanzweifel/git-auto-commit-action@v5
+        uses: stefanzweifel/git-auto-commit-action@v7
         with:
           commit_message: "style: auto-correct RuboCop offenses"
           commit_user_name: "GitHub Actions Bot"
