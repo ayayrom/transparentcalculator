@@ -2,7 +2,7 @@
 <p>Find me in app/views/calculations/new.html.erb</p>
 
 <% if @calculation.errors.any? %>
-  <div style="color: red;">
+  <div style="color: red;" id="server_error_box">
     <%= @calculation.errors.full_messages.to_sentence %>
   </div>
 <% end %>
@@ -23,19 +23,42 @@
   <br>
 
   <div>
-    <%= form.submit "Calculate steps", id: "calculate_btn"  %>
+    <%= form.submit "Calculate steps",
+        id: "calculate_btn",
+        disabled: @calculation.errors.any? %>
   </div>
 <% end %>
 
 <script>
-  const input = document.getElementById("equation_input");
-  const button = document.getElementById("calculate_btn");
+  {
+    const input = document.getElementById("equation_input");
+    const button = document.getElementById("calculate_btn");
+    const errorBox = document.getElementById("server_error_box");
 
-  const validateInput = () => {
-    button.disabled = !input.checkValidity();
+    // once the page loads, add the hooks
+    if (input && button) {
+      const rejectedValue = input.value;
+
+      const validateInput = () => {
+        if (errorBox &&
+            errorBox.style.display !== "none" &&
+            input.value === rejectedValue) {
+          button.disabled = true;
+          return;
+        }
+        button.disabled = !input.checkValidity();
+      };
+
+      validateInput();
+
+      input.addEventListener("input", () => {
+        if (errorBox && input.value !== rejectedValue) {
+          errorBox.style.display = "none";
+        }
+        validateInput();
+      });
+    }
   }
-  validateInput();
-  input.addEventListener("input", validateInput);
 </script>
 
 <%= debug @calculation %>
