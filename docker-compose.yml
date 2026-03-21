@@ -6,9 +6,21 @@ services:
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: password
     ports:
-      - "5123:5432"
+      - "127.0.0.1:5123:5432"
     volumes:
       - postgres_data:/var/lib/postgresql
+
+  web:
+    build: .
+    restart: always
+    environment:
+      RAILS_ENV: production
+      RAILS_MASTER_KEY: ${RAILS_MASTER_KEY}
+      DATABASE_URL: postgres://postgres:password@db:5432/bignumcalc_production
+    ports:
+      - "127.0.0.1:8512:80"
+    depends_on:
+      - db
 
 volumes:
   postgres_data:

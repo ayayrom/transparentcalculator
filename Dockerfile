@@ -11,7 +11,7 @@
 #ARG RUBY_VERSION=3.3.7
 #FROM docker.io/library/ruby:$RUBY_VERSION-slim AS base
 # since this is truffleruby, do this:
-FROM ghcr.io/truffleruby/truffleruby:33.0.1
+FROM ghcr.io/truffleruby/truffleruby:33.0.1 AS base
 
 
 # Rails app lives here
