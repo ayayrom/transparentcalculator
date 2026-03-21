@@ -1,6 +1,7 @@
 # README
 
 This ruby on rails project is to create a calculator that can recursively break down its steps and show it in a tree-like fashion.
+For a demonstration, visit https://calc.ayayrom.cfd
 
 ## Ruby version
 truffleruby 33.0.1 (2026-01-20)
