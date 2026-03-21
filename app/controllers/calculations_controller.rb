@@ -12,9 +12,11 @@ class CalculationsController < ApplicationController
     if @calculation.save
       parser = EquationParser.new(@calculation.equation)
 
+      parsed_data = parser.process
+
       @calculation.update(
-        solution: "Pending",
-        tree: {  "tokens" => parser.process }
+        solution: parsed_data[:error] || parsed_data[:final_answer],
+        tree: parsed_data
       )
       
       redirect_to calculation_path(@calculation)

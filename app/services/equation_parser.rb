@@ -1,3 +1,6 @@
+require 'bigdecimal'
+require 'bigdecimal/util'
+
 class EquationParser
   attr_reader :equation_string, :tokens, :rpn
   # reverse polish notation => rpn
@@ -23,11 +26,7 @@ class EquationParser
   def process
     tokenize
     parse_to_rpn
-    # evaluate
-
-    # return tokens so we can test if tokenizer works
-    #@tokens
-    @rpn
+    evaluate
   end
 
   private
@@ -92,7 +91,51 @@ class EquationParser
     @rpn = output_queue
   end
 
+  def evaluate
+    eval_stack = []
+    steps = []
+    
+    @rpn.each do |token|
+      if is_number?(token)
+        # decimal is better for division
+        eval_stack << token.to_d
+      elsif is_operator?(token)
+        # pop right before left operand
+        right = eval_stack.pop
+        left = eval_stack.pop
+
+        # catch a divide by zero case
+        if token == "/" && right.zero?
+          return { error: "Division by zero is undefined", steps: steps }
+        end
+        
+        result = calculate(left, right, token)
+        steps << "#{format_number(left)} #{token} #{format_number(right)} = #{format_number(result)}"
+        
+        eval_stack << result
+      end
+    end
+    
+    final_answer = format_number(eval_stack.pop)
+    
+    {
+      final_answer: final_answer.to_s,
+      steps: steps
+    }
+    
+  end
+
 # HELPER FUNCTIONS
+
+  def calculate(left, right, operator)
+    case operator
+    when "+" then left + right
+    when "-" then left - right
+    when "*" then left * right
+    when "/" then left / right
+    when "^" then left ** right
+    end
+  end
 
   def is_number?(token)
     token.match?(/\A-?\d+(\.\d+)?\z/)
@@ -100,6 +143,15 @@ class EquationParser
 
   def is_operator?(token)
     PRECEDENCE.key?(token)
+  end
+
+  def format_number(num)
+    return 0 if num.nil?
+    if num == num.to_i
+      num.to_i
+    else
+      num.to_f
+    end
   end
             
 end
