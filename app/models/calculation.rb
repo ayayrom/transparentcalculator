@@ -1,8 +1,8 @@
 class Calculation < ApplicationRecord
   validates :equation, presence: true
-  validates :equation, format: { 
-    with: /\A[\d\+\-\*\/\^\(\)\.\s]+\z/, 
-    message: "contains invalid characters. Only numbers and math operators are allowed." 
+  validates :equation, format: {
+    with: /\A[\d\+\-\*\/\^\(\)\.\s]+\z/,
+    message: "contains invalid characters. Only numbers and math operators are allowed."
   }
 
   validate :equation_structure_check
