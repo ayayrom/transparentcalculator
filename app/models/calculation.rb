@@ -12,6 +12,13 @@ class Calculation < ApplicationRecord
   def equation_structure_check
     return if equation.blank?
 
+    # example: "10 5" is invalid
+    # if we were to strip it first before checking this, it would give us 105 which
+    # is invalid
+    if equation.match?(/\d\s+\d/)
+      errors.add(:equation, "contains numbers separated by spaces without an operator")
+    end
+
     # strip all spaces of space in the string
     stripped_eq = equation.gsub(/\s+/, "")
 
