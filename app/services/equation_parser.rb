@@ -1,5 +1,5 @@
-require 'bigdecimal'
-require 'bigdecimal/util'
+require "bigdecimal"
+require "bigdecimal/util"
 
 class EquationParser
   attr_reader :equation_string, :tokens, :rpn
@@ -15,7 +15,7 @@ class EquationParser
   }.freeze
 
   # 2^3^2 is 2^(3^2)
-  RIGHT_ASSOCIATIVE = ["^"].freeze
+  RIGHT_ASSOCIATIVE = [ "^" ].freeze
 
   def initialize(equation_string)
     @equation_string = equation_string.gsub(/\s+/, "")
@@ -38,7 +38,7 @@ class EquationParser
     chars.each_with_index do |char, index|
       if char.match?(/[\d\.]/) # if digit or decimal
         current_number << char
-      elsif char == '-' && (index == 0 || chars[index - 1].match?(/[+\-*\/^(]/))
+      elsif char == "-" && (index == 0 || chars[index - 1].match?(/[+\-*\/^(]/))
         # if subtraction or negative
         current_number << char
       else # else standard operator or parenthesis
@@ -64,9 +64,9 @@ class EquationParser
           # push operators to output if they have higher or equal precedence
           top_op = operator_stack.last
 
-          if (RIGHT_ASSOCIATIVE.include?(token) && 
+          if (RIGHT_ASSOCIATIVE.include?(token) &&
               PRECEDENCE[token] < PRECEDENCE[top_op]) ||
-             (!RIGHT_ASSOCIATIVE.include?(token) && 
+             (!RIGHT_ASSOCIATIVE.include?(token) &&
              PRECEDENCE[token] <= PRECEDENCE[top_op])
             output_queue << operator_stack.pop
           else
@@ -87,14 +87,14 @@ class EquationParser
     while operator_stack.any?
       output_queue << operator_stack.pop
     end
-    
+
     @rpn = output_queue
   end
 
   def evaluate
     eval_stack = []
     steps = []
-    
+
     @rpn.each do |token|
       if is_number?(token)
         # decimal is better for division
@@ -108,24 +108,23 @@ class EquationParser
         if token == "/" && right.zero?
           return { error: "Division by zero is undefined", steps: steps }
         end
-        
+
         result = calculate(left, right, token)
         steps << "#{format_number(left)} #{token} #{format_number(right)} = #{format_number(result)}"
-        
+
         eval_stack << result
       end
     end
-    
+
     final_answer = format_number(eval_stack.pop)
-    
+
     {
       final_answer: final_answer.to_s,
       steps: steps
     }
-    
   end
 
-# HELPER FUNCTIONS
+  # HELPER FUNCTIONS
 
   def calculate(left, right, operator)
     case operator
@@ -153,5 +152,4 @@ class EquationParser
       num.to_f
     end
   end
-            
 end
