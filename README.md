@@ -8,5 +8,5 @@ truffleruby 33.0.1 (2026-01-20)
 ## Configuration
 This project was tinkered to use PostgreSQL instead of SQLite because of PostgreSQL's support for JSONB.
 
-## Database
-The database must be ran concurrently with the rails server, with `docker compose up -d`. You can configure the ports and user/password as needed.
+## Deployment
+For a simple deployment, I have given a docker-compose.yml that allows this to deploy easily. Simply do `docker compose up -d --build` and `docker compose exec web bin/rails db:create` to create the docker containers and set up the database.
