@@ -13,7 +13,15 @@
 
 Step by step execution tree
 
-<code><%= JSON.pretty_generate(@calculation.tree) %></code>
+<% if @calculation.tree.present? && @calculation.tree["steps"].present? %>
+  <% @calculation.tree["steps"].each do |step| %>
+    <li><%= step %></li>
+  <% end %>
+<% elsif @calculation.tree.present? && @calculation.tree["error"].present? %>
+  Error: <%= @calculation.tree["error"] %>
+<% else %>
+  No steps recorded.
+<% end %>
 
 <br>
 
