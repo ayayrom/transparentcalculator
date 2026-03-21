@@ -6,10 +6,17 @@ class CalculationsController < ApplicationController
   def create
     @calculation = Calculation.new(calculation_params)
 
-    @calculation.solution = "Pending"
-    @calculation.tree = { status: "Not parsed" }
+    # @calculation.solution = "Pending"
+    # @calculation.tree = { status: "Not parsed" }
 
     if @calculation.save
+      parser = EquationParser.new(@calculation.equation)
+
+      @calculation.update(
+        solution: "Pending",
+        tree: {  "tokens" => parser.process }
+      )
+      
       redirect_to calculation_path(@calculation)
     else
       render :new, status: :unprocessable_entity

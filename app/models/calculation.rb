@@ -35,5 +35,12 @@ class Calculation < ApplicationRecord
     if stripped_eq.match?(/[\+\-\*\/\^]\z/)
       errors.add(:equation, "cannot end with a math operator")
     end
+
+    # no )( and implicit multiplication
+    if stripped_eq.match?(/\)\(/) || 
+       stripped_eq.match?(/\d\(/) || 
+       stripped_eq.match?(/\)\d/)
+       errors.add(:equation, "requires an explicit operator (*) between numbers and parentheses")
+    end
   end
 end
