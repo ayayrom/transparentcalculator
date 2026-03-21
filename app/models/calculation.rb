@@ -44,8 +44,8 @@ class Calculation < ApplicationRecord
     end
 
     # no )( and implicit multiplication
-    if stripped_eq.match?(/\)\(/) || 
-       stripped_eq.match?(/\d\(/) || 
+    if stripped_eq.match?(/\)\(/) ||
+       stripped_eq.match?(/\d\(/) ||
        stripped_eq.match?(/\)\d/)
        errors.add(:equation, "requires an explicit operator (*) between numbers and parentheses")
     end

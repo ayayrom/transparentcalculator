@@ -18,7 +18,7 @@ class CalculationsController < ApplicationController
         solution: parsed_data[:error] || parsed_data[:final_answer],
         tree: parsed_data
       )
-      
+
       redirect_to calculation_path(@calculation)
     else
       render :new, status: :unprocessable_entity
